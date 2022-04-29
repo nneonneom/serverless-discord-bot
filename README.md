@@ -4,11 +4,18 @@
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
-- serverless-bot - Code for the Discord Bot application's Lambda function written in TypeScript.
-- events - Invocation events that you can use to invoke the function.
-- serverless-bot/tests - Unit tests for the application code. 
-- template.yaml - A template that defines the application's AWS resources.
+- [template.yaml](https://github.com/nneonneom/serverless-discord-bot/blob/main/template.yaml) - A template that defines the application's AWS resources.
   - You also specify env variables in this file. Make sure to replace \<PLACE-DISCORD-PUBLIC-KEY-HERE\> with your actually Discord Applications public key. 
+- [serverless-bot](https://github.com/nneonneom/serverless-discord-bot/tree/main/serverless-bot) - Code for the Discord Bot application's Lambda function written in TypeScript.
+- [app.ts](https://github.com/nneonneom/serverless-discord-bot/blob/main/serverless-bot/app.ts) - The entry point into the lambda function.
+- [request-validator.ts](https://github.com/nneonneom/serverless-discord-bot/blob/main/serverless-bot/src/request-validator/request-validator.ts) - Where payload validation & discord webhook requirements are handled.
+- [command-processor.ts](https://github.com/nneonneom/serverless-discord-bot/blob/main/serverless-bot/src/commands/services/command-processor.ts) - Where the incoming command is executed.
+- [command-map](https://github.com/nneonneom/serverless-discord-bot/tree/main/serverless-bot/src/commands/command-map) - The location of all registered slash commands. Each command is bundled into a single object called CommandMap.
+- [events](https://github.com/nneonneom/serverless-discord-bot/tree/main/events) - Invocation events that you can use to invoke the function.
+- [serverless-bot/tests](https://github.com/nneonneom/serverless-discord-bot/tree/main/serverless-bot/tests/unit) - Unit tests for the application code. 
+
+
+
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
 
