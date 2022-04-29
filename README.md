@@ -1,5 +1,5 @@
 # serverless-discord-bot
-Serverless Discord Bot configured to use webhook-based Discord Interactions through slash commands.
+[Serverless](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/sam-resource-api.html) Discord Bot configured to use [webhook-based Discord Interactions](https://discord.com/developers/docs/interactions/receiving-and-responding#receiving-an-interaction) through [slash commands](https://discord.com/developers/docs/interactions/application-commands#slash-commands).
 ---------------------------------------------------------------------------------------------------
 
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
