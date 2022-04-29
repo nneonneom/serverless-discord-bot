@@ -8,7 +8,7 @@ This project contains source code and supporting files for a serverless applicat
 - events - Invocation events that you can use to invoke the function.
 - serverless-bot/tests - Unit tests for the application code. 
 - template.yaml - A template that defines the application's AWS resources.
-  - You also specify env variables in this file. Make sure to replace <PLACE-DISCORD-PUBLIC-KEY-HERE> with your actually Discord Applications public key 
+  - You also specify env variables in this file. Make sure to replace <PLACE-DISCORD-PUBLIC-KEY-HERE> with your actually Discord Applications public key. 
 
 The application uses several AWS resources, including Lambda functions and an API Gateway API. These resources are defined in the `template.yaml` file in this project. You can update the template to add AWS resources through the same deployment process that updates your application code.
 
