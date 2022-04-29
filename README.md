@@ -125,6 +125,8 @@ aws cloudformation delete-stack --stack-name serverless-discord-bot
 
 ## Resources
 
+Check out this article for more information on how to [Build a Discord Bot With AWS Lambda + API Gateway](https://betterprogramming.pub/build-a-discord-bot-with-aws-lambda-api-gateway-cc1cff750292)
+
 See the [AWS SAM developer guide](https://docs.aws.amazon.com/serverless-application-model/latest/developerguide/what-is-sam.html) for an introduction to SAM specification, the SAM CLI, and serverless application concepts.
 
 Next, you can use AWS Serverless Application Repository to deploy ready to use Apps that go beyond hello world samples and learn how authors developed their applications: [AWS Serverless Application Repository main page](https://aws.amazon.com/serverless/serverlessrepo/)
