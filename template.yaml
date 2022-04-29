@@ -1,0 +1,75 @@
+AWSTemplateFormatVersion: '2010-09-09'
+Transform: AWS::Serverless-2016-10-31
+Description: >
+  api-test
+
+  Sample SAM Template for api-test
+  
+# More info about Globals: https://github.com/awslabs/serverless-application-model/blob/master/docs/globals.rst
+Globals:
+  Function:
+    Timeout: 3
+
+Resources:
+  CommandEventFunction:
+    Type: AWS::Serverless::Function # More info about Function Resource: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlessfunction
+    Properties:
+      CodeUri: serverless-bot/
+      Handler: app.lambdaHandler
+      Runtime: nodejs14.x
+      Architectures:
+        - x86_64
+      Policies:
+        # Give Create/Read/Update/Delete Permissions to the BotTable
+        - DynamoDBCrudPolicy:
+            TableName: !Ref BotTable
+      Environment:
+        Variables:
+          # Make table name accessible as environment variable from function code during execution
+          BOT_TABLE: !Ref BotTable
+          DISCORD_PUBLIC_KEY: <PLACE-DISCORD-PUBLIC-KEY-HERE>
+      Events:
+        CommandEvent:
+          Type: Api # More info about API Event Source: https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#api
+          Properties:
+            Path: /command-event
+            Method: post
+    Metadata: # Manage esbuild properties
+      BuildMethod: esbuild
+      BuildProperties:
+        Minify: true
+        Target: "es2020"
+        Sourcemap: true
+        EntryPoints: 
+        - app.ts
+
+  # Simple syntax to create a DynamoDB table with a single attribute primary key, more in
+  # https://github.com/awslabs/serverless-application-model/blob/master/versions/2016-10-31.md#awsserverlesssimpletable
+  BotTable:
+    Type: AWS::Serverless::SimpleTable
+    Properties:
+      TableName: bot-table
+      PrimaryKey:
+        Name: id
+        Type: String
+      ProvisionedThroughput:
+        ReadCapacityUnits: 2
+        WriteCapacityUnits: 2
+      Tags:
+        AppType: Serverless
+      SSESpecification:
+        SSEEnabled: true
+
+Outputs:
+  # ServerlessRestApi is an implicit API created out of Events key under Serverless::Function
+  # Find out more about other implicit resources you can reference within SAM
+  # https://github.com/awslabs/serverless-application-model/blob/master/docs/internals/generated_resources.rst#api
+  CommandEventApi:
+    Description: "API Gateway endpoint URL for Prod stage for Command Event function"
+    Value: !Sub "https://${ServerlessRestApi}.execute-api.${AWS::Region}.amazonaws.com/Prod/command-event/"
+  CommandEventFunction:
+    Description: "Hello World Lambda Function ARN"
+    Value: !GetAtt CommandEventFunction.Arn
+  CommandEventFunctionIamRole:
+    Description: "Implicit IAM Role created for Hello World function"
+    Value: !GetAtt CommandEventFunctionRole.Arn
