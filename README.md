@@ -5,7 +5,7 @@
 This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
 
 - [template.yaml](https://github.com/nneonneom/serverless-discord-bot/blob/main/template.yaml) - A template that defines the application's AWS resources.
-  - You also specify env variables in this file. Make sure to replace `\<PLACE-DISCORD-PUBLIC-KEY-HERE\>` with your actually Discord Applications public key. 
+  - You also specify env variables in this file. Make sure to replace `<PLACE-DISCORD-PUBLIC-KEY-HERE>` with your actually Discord Applications public key. 
 - [serverless-bot](https://github.com/nneonneom/serverless-discord-bot/tree/main/serverless-bot) - Code for the Discord Bot application's Lambda function written in TypeScript.
 - [app.ts](https://github.com/nneonneom/serverless-discord-bot/blob/main/serverless-bot/app.ts) - The entry point into the lambda function.
 - [request-validator.ts](https://github.com/nneonneom/serverless-discord-bot/blob/main/serverless-bot/src/request-validator/request-validator.ts) - Where payload validation & discord webhook requirements are handled.
