@@ -2,7 +2,7 @@
 [Serverless](https://hackernoon.com/what-is-serverless-architecture-what-are-its-pros-and-cons-cc4b804022e9) Discord Bot configured to use [webhook-based Discord Interactions](https://discord.com/developers/docs/interactions/receiving-and-responding#receiving-an-interaction) through [slash commands](https://discord.com/developers/docs/interactions/application-commands#slash-commands).
 ---------------------------------------------------------------------------------------------------
 
-This project contains source code and supporting files for a serverless application that you can deploy with the SAM CLI. It includes the following files and folders.
+This project contains source code and supporting files for a serverless Discord bot application that you can deploy with the SAM CLI. It includes the following files and folders.
 
 - [template.yaml](https://github.com/nneonneom/serverless-discord-bot/blob/main/template.yaml) - A template that defines the application's AWS resources.
   - You also specify env variables in this file. Make sure to replace `<PLACE-DISCORD-PUBLIC-KEY-HERE>` with your actually Discord Applications public key. 
