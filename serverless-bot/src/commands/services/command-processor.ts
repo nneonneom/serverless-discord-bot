@@ -10,9 +10,8 @@ export class CommandProcessor {
         this.command = CommandMap[parsedBody.data.name]
     }
     public process() {
-        if (!this.command) {
-            throw new Error('Command not found!')
-        }
+        if (!this.command) throw new Error('Command not found!')
+        
         const message = this.command.execute()
         return createResponse({
             "type": 4,

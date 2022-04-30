@@ -8,8 +8,7 @@ export const lambdaHandler = async (event: APIGatewayProxyEvent): Promise<APIGat
     let response: any
     try {
         console.log("Incoming Request...", JSON.stringify(event))
-        const discordPingResponse = new RequestValidator(event).validate()
-        response = discordPingResponse ?? new CommandProcessor(event).process()
+        response = new RequestValidator(event).validate() ?? new CommandProcessor(event).process()
     } catch (err: any) {
         const message = err.body ?? 'some shit happened...idk..',
             statusCode = err.statusCode ?? 500
